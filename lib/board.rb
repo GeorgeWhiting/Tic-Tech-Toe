@@ -7,11 +7,11 @@ class Board
   end
 
   def get_element_value(i, j)
-    board[i][j]
+    @board[i][j]
   end
 
   def claim_field(i, j, player)
-    board[i][j] = player if is_field_free?(i,j)
+    @board[i][j] = player if is_field_free?(i,j)
   end
 
   def is_field_free?(i, j)

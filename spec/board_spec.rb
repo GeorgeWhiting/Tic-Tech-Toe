@@ -33,4 +33,11 @@ describe Board do
       expect {subject.claim_field(0,0,'x')}.to change {subject.is_field_free?(0,0)}
     end
   end
+
+  describe "#free_fields_count" do
+    it "should return the number of free elements" do
+      subject.claim_field(0,0,'o')
+      expect(subject.free_fields_count).to eq 8
+    end
+  end
 end

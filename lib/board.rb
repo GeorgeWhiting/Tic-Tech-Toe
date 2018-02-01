@@ -11,7 +11,11 @@ class Board
   end
 
   def claim_field(i, j, player)
-    board[i][j] = player
+    board[i][j] = player if is_field_free?(i,j)
+  end
+
+  def is_field_free?(i, j)
+    get_element_value(i, j) == '-'
   end
 
 end

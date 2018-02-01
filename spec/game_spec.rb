@@ -15,7 +15,7 @@ describe Game do
     end
   end
 
-  describe "do_turn" do
+  describe "#do_turn" do
     it "should place the current player's marker in a field then switch the current player" do
       expect(subject.current_turn).to eq 'x'
       subject.do_turn(1,1)
@@ -33,6 +33,24 @@ describe Game do
       subject.do_turn(1,1)
       subject.do_turn(1,1)
       expect(subject.current_turn).to eq 'o'
+    end
+  end
+
+  describe "#game_over?" do
+    it "should return true if remaining turns reach 0" do
+
+      #will be changed when i start mocking
+      subject.do_turn(0,0)
+      subject.do_turn(0,1)
+      subject.do_turn(0,2)
+      subject.do_turn(1,0)
+      subject.do_turn(1,1)
+      subject.do_turn(1,2)
+      subject.do_turn(2,0)
+      subject.do_turn(2,1)
+      subject.do_turn(2,2)
+
+      expect(subject.game_over?).to eq true
     end
   end
 end

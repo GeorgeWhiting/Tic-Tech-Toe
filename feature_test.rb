@@ -25,7 +25,7 @@ game.do_turn(1,1)
 p game.remaining_turns
 
   p "#{game.board.board[0][0]} | #{game.board.board[0][1]} | #{game.board.board[0][2]}"
-  p " --------"
+  p "---------"
   p "#{game.board.board[1][0]} | #{game.board.board[1][1]} | #{game.board.board[1][2]}"
-  p " --------"
+  p "---------"
   p "#{game.board.board[2][0]} | #{game.board.board[2][1]} | #{game.board.board[2][2]}"

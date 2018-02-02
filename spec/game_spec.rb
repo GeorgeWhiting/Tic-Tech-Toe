@@ -114,13 +114,22 @@ describe Game do
       expect(subject.win_check(0,2)).to eq true
     end
 
-    # it "should return true if a diagonal contains all the same token" do
-    #   subject.do_turn(0,0)
-    #   subject.do_turn(1,0)
-    #   subject.do_turn(1,1)
-    #   subject.do_turn(2,0)
-    #   subject.do_turn(2,2)
-    #   expect(subject.win_check(2,2)).to eq true
-    # end
+    it "should return true if the TL BR diagonal contains all the same token" do
+      subject.do_turn(0,0)
+      subject.do_turn(1,0)
+      subject.do_turn(1,1)
+      subject.do_turn(2,0)
+      subject.do_turn(2,2)
+      expect(subject.win_check(2,2)).to eq true
+    end
+
+    it "should return true if the BL TR diagonal contains all the same token" do
+      subject.do_turn(0,2)
+      subject.do_turn(1,0)
+      subject.do_turn(1,1)
+      subject.do_turn(2,1)
+      subject.do_turn(2,0)
+      expect(subject.win_check(2,0)).to eq true
+    end
   end
 end

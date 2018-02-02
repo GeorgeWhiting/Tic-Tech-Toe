@@ -26,6 +26,8 @@ class Game
   end
 
   def win_check(i,j)
+    return true if [@board.board[0][0], @board.board[1][1], @board.board[2][2]].select {|f| f == @board.get_element_value(i,j)}.length == 3
+    return true if [@board.board[0][2], @board.board[1][1], @board.board[2][0]].select {|f| f == @board.get_element_value(i,j)}.length == 3
     return true if @board.board.transpose[j].select {|f| f == @board.get_element_value(i,j)}.length == 3
     return true if @board.board[i].select {|f| f == @board.get_element_value(i,j)}.length == 3
     false

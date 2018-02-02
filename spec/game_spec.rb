@@ -53,4 +53,74 @@ describe Game do
       expect(subject.game_over?).to eq true
     end
   end
+
+  describe "#win_check" do
+    it "should return false if the game isn't won" do
+      subject.do_turn(0,0)
+      expect(subject.win_check(0,0)).to eq false
+    end
+
+    it "should return true if row 0 contains all the same token" do
+      subject.do_turn(0,1)
+      subject.do_turn(1,2)
+      subject.do_turn(0,2)
+      subject.do_turn(2,2)
+      subject.do_turn(0,0)
+      expect(subject.win_check(0,0)).to eq true
+    end
+
+    it "should return true if row 1 contains all the same token" do
+      subject.do_turn(1,0)
+      subject.do_turn(0,0)
+      subject.do_turn(1,1)
+      subject.do_turn(2,0)
+      subject.do_turn(1,2)
+      expect(subject.win_check(1,2)).to eq true
+    end
+
+    it "should return true if row 2 contains all the same token" do
+      subject.do_turn(2,0)
+      subject.do_turn(0,0)
+      subject.do_turn(2,1)
+      subject.do_turn(1,2)
+      subject.do_turn(2,2)
+      expect(subject.win_check(2,2)).to eq true
+    end
+
+    it "should return true if column 0 contains all the same token" do
+      subject.do_turn(1,0)
+      subject.do_turn(1,2)
+      subject.do_turn(2,0)
+      subject.do_turn(2,2)
+      subject.do_turn(0,0)
+      expect(subject.win_check(0,0)).to eq true
+    end
+
+    it "should return true if column 1 contains all the same token" do
+      subject.do_turn(1,1)
+      subject.do_turn(1,2)
+      subject.do_turn(2,1)
+      subject.do_turn(2,2)
+      subject.do_turn(0,1)
+      expect(subject.win_check(0,1)).to eq true
+    end
+
+    it "should return true if column 2 contains all the same token" do
+      subject.do_turn(1,2)
+      subject.do_turn(1,1)
+      subject.do_turn(2,2)
+      subject.do_turn(2,1)
+      subject.do_turn(0,2)
+      expect(subject.win_check(0,2)).to eq true
+    end
+
+    # it "should return true if a diagonal contains all the same token" do
+    #   subject.do_turn(0,0)
+    #   subject.do_turn(1,0)
+    #   subject.do_turn(1,1)
+    #   subject.do_turn(2,0)
+    #   subject.do_turn(2,2)
+    #   expect(subject.win_check(2,2)).to eq true
+    # end
+  end
 end

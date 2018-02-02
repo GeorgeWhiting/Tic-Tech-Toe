@@ -25,4 +25,9 @@ class Game
     @remaining_turns == 0
   end
 
+  def win_check(i,j)
+    return true if @board.board.transpose[j].select {|f| f == @board.get_element_value(i,j)}.length == 3
+    return true if @board.board[i].select {|f| f == @board.get_element_value(i,j)}.length == 3
+    false
+  end
 end

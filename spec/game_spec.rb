@@ -50,7 +50,12 @@ describe Game do
       subject.do_turn(2,1)
       subject.do_turn(2,2)
 
-      expect(subject.game_over?).to eq true
+      expect(subject.game_over?(2,2)).to eq true
+    end
+
+    it "should return true if win_check is true" do
+      allow(subject).to receive(:win_check).and_return(true)
+      expect(subject.game_over?(0,0)).to eq true
     end
   end
 

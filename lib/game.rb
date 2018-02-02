@@ -18,11 +18,11 @@ class Game
   def do_turn(i,j)
     @board.claim_field(i, j, @current_turn)
     switch_player if (@remaining_turns == @board.free_fields_count+1)
-    game_over?
+    game_over?(i,j)
   end
 
-  def game_over?
-    @remaining_turns == 0
+  def game_over?(i,j)
+    win_check(i,j) || @remaining_turns == 0
   end
 
   def win_check(i,j)
